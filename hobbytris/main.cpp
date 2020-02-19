@@ -1,4 +1,5 @@
 #include <iostream>
+#include "quit.h"
 
 int main()
 {
@@ -22,6 +23,7 @@ int main()
 		{
 			std::cout << "\033[2J\033[u";
 			std::cout << "You've chosen quit!" << std::endl;
+			mightQuit();
 			isInMenu = false;
 		}
 		else
@@ -35,4 +37,3 @@ int main()
 
 	return 0;
 }
-
