@@ -1,9 +1,8 @@
 #include <iostream>
 #include "quit.h"
 
-void mightQuit() {
+bool mightQuit() {
 
-	bool isOnQuit = true;
 	char wannaQuit;
 
 	do
@@ -16,21 +15,20 @@ void mightQuit() {
 		{
 			std::cout << "\033[2J\033[u";
 			std::cout << "Terminating program..." << std::endl;
-			isOnQuit = false;
+			return true;
 		}
-		else if (wannaQuit == 'N' || wannaQuit == 'n')
+			else if (wannaQuit == 'N' || wannaQuit == 'n')
 		{
 			std::cout << "\033[2J\033[u";
 			std::cout << "Returning to main menu." << std::endl;
-			//TODO: return to main cycle
+			return false;
 		}
 		else
 		{
-			std::cout << "\033[2J\033[u";
 			std::cout << "Please enter a valid option." << std::endl;
-			//TODO: doesn't work as intended
+			//FIXME: doesn't work as intended
 		}
 	} 
 	
-	while (isOnQuit == true);
+	while (true);
 }
